@@ -21,32 +21,44 @@ The precise search procedure, terminality criteria and classification results wi
 ## Repository structure
 
 ```text
-code/                  Exhaustive-search and analysis code
+code/                               Exhaustive-search and analysis scripts/notebooks
 
 data/
   quasismooth/
-    quasismooth_terminal.csv
-                       Reference quasismooth classification
-  ...                  Exhaustive-search and certification data
+    quasismooth_terminal.csv         Reference quasismooth classification
+  certification/
+    certification_short.pkl          Degree and weight records
+    certification_medium.pkl         Condensed singularity records
+    certification_long.pkl           Detailed certification records
+    certification_raw.pkl            Raw records and certification outcomes
 
-figures/               Figures associated with the analysis
-LICENSE                MIT licence
+figures/                            Figures associated with the analysis
+LICENSE                             MIT licence
 README.md
 ```
 
-This overview shows the top-level directories and the quasismooth reference file; it is not a complete listing of the contents of `code/` and `data/`.
+The tree highlights the principal directories and certification files; it is not a complete listing of the computational outputs.
 
-## Classification data
+## Classification and certification data
 
-### Exhaustive search
+### Exhaustive-search certification datasets
 
-The data in [`data/`](data/) supports the exhaustive search and terminality analysis through $d\leq200$. A family is specified by its six weights $(a_1,\ldots,a_6)$, with equation degree recovered from
+The files in [`data/certification/`](data/certification/) contain the records associated with the exhaustive search and terminality analysis through weighted degree $d\leq200$. The processed datasets describe the families and the singularities used in their certification, while the raw records retain the outcomes of the terminality tests.
+
+| File | Description |
+| --- | --- |
+| [`certification_short.pkl`](data/certification/certification_short.pkl) | Short records containing equation degree and six ambient weights |
+| [`certification_medium.pkl`](data/certification/certification_medium.pkl) | Condensed singularity data for the certified terminal families |
+| [`certification_long.pkl`](data/certification/certification_long.pkl) | More detailed singularity and certification records |
+| [`certification_raw.pkl`](data/certification/certification_raw.pkl) | Raw certification records, including terminality-test outcomes |
+
+Each family is determined by its six ambient weights $(a_1,\ldots,a_6)$, with defining equation degree
 
 $$
 d=a_1+\cdots+a_6-1.
 $$
 
-The computational records distinguish quasismooth and nonquasismooth families and include singularity information used in terminality testing.
+For example, the weights $(1,1,5,25,37,68)$ determine the hypersurface $X_{136}\subset\mathbb{P}(1,1,5,25,37,68)$. The `.pkl` files are Python pickle files for use with the scripts and notebooks in [`code/`](code/). Only load pickle files from sources you trust.
 
 ### Full classification: Zenodo
 
