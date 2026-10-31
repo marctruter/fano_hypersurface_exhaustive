@@ -27,6 +27,7 @@ data/
   quasismooth/
     quasismooth_terminal.csv         Reference quasismooth classification
   certification/
+    certification_short.csv          Six weights per row (no header)
     certification_short.pkl          Degree and weight records
     certification_medium.pkl         Condensed singularity records
     certification_long.pkl           Detailed certification records
@@ -47,18 +48,19 @@ The files in [`data/certification/`](data/certification/) contain the records as
 
 | File | Description |
 | --- | --- |
+| [`certification_short.csv`](data/certification/certification_short.csv) | Six weights $a_1,\ldots,a_6$ per row; **no header** |
 | [`certification_short.pkl`](data/certification/certification_short.pkl) | Short records containing equation degree and six ambient weights |
 | [`certification_medium.pkl`](data/certification/certification_medium.pkl) | Condensed singularity data for the certified terminal families |
 | [`certification_long.pkl`](data/certification/certification_long.pkl) | More detailed singularity and certification records |
 | [`certification_raw.pkl`](data/certification/certification_raw.pkl) | Raw certification records, including terminality-test outcomes |
 
-Each family is determined by its six ambient weights $(a_1,\ldots,a_6)$, with defining equation degree
+The short CSV contains one row per weight vector, for example:
 
-$$
-d=a_1+\cdots+a_6-1.
-$$
+```csv
+1,1,5,25,37,68
+```
 
-For example, the weights $(1,1,5,25,37,68)$ determine the hypersurface $X_{136}\subset\mathbb{P}(1,1,5,25,37,68)$. The `.pkl` files are Python pickle files for use with the scripts and notebooks in [`code/`](code/). Only load pickle files from sources you trust.
+This represents the hypersurface $X_{136}\subset\mathbb{P}(1,1,5,25,37,68)$; the equation degree is recovered from $d=\sum_i a_i-1$. The CSV contains no header or degree column. The `.pkl` files are Python pickle files for use with the scripts and notebooks in [`code/`](code/). Only load pickle files from sources you trust.
 
 ### Full classification: Zenodo
 
