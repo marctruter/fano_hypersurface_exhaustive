@@ -14,7 +14,7 @@ We perform an **exhaustive computational search up to equation degree $d\leq200$
 
 - An exhaustive search in the degree range **$d\leq200$**.
 - **77,387 nonquasismooth terminal families** identified in this range.
-- Recorded weight vectors and computational information about singularities and terminality; the full classification data will be archived separately on Zenodo.
+- Recorded weight vectors and computational information about singularities and terminality. The complete tabulated classification is [archived on Zenodo](https://doi.org/10.5281/zenodo.23836799).
 
 The precise search procedure, terminality criteria and classification results will be described in *Terminal Fano 4-fold Hypersurfaces* (in preparation).
 
@@ -34,7 +34,7 @@ LICENSE                MIT licence
 README.md
 ```
 
-This overview shows the verified top-level directories and the quasismooth reference file; it is not a complete listing of the contents of `code/` and `data/`.
+This overview shows the top-level directories and the quasismooth reference file; it is not a complete listing of the contents of `code/` and `data/`.
 
 ## Classification data
 
@@ -50,21 +50,36 @@ The computational records distinguish quasismooth and nonquasismooth families an
 
 ### Full classification: Zenodo
 
-The full tabulated classification will be published as a separate **Zenodo dataset** alongside the forthcoming paper.
+The complete tabulated classification is published as a separate Zenodo dataset:
 
-**Zenodo record / DOI:** *Link to be added after publication.*
+**[Classification of Terminal Fano 4-Fold Hypersurfaces in Weighted Projective Space of Index 1 up to Degree 200](https://doi.org/10.5281/zenodo.23836799)**  
+**DOI:** [`10.5281/zenodo.23836799`](https://doi.org/10.5281/zenodo.23836799)
 
-The planned SQL archive, **`terminal_fano_fourfolds_index1_200.sql`**, records the equation degree and individual weights, canonical class, point, curve and surface singularity baskets, their sizes, and smoothness, quasismoothness, terminality and canonicality indicators. It also records the anticanonical volume
+The SQL archive, **`terminal_fano_4fold_index1_200.sql`**, contains the table `terminal_fano_4fold_index1_200`. It records the equation degree and individual weights, canonical class, point and curve singularity baskets (organised by type), their sizes, and smoothness, quasismoothness, terminality and canonicality indicators. It also records the anticanonical volume
 
 $$
 (-K_X)^4=\frac{d}{a_1a_2a_3a_4a_5a_6}.
 $$
 
-In the SQL data, `Degree` represents the exact rational volume and `Degree_dec` its decimal approximation. The archive is intended to make the classification straightforward to inspect and query without rerunning the exhaustive search.
+In the SQL data, `Degree` represents the exact rational volume and `Degree_dec` its decimal approximation. The archive allows users to inspect and query the classification without rerunning the exhaustive search.
+
+After downloading the SQL file, it can be imported into SQLite (with the `sqlite3` command-line tool installed):
+
+```bash
+sqlite3 terminal_fano_4fold_index1_200.db ".read terminal_fano_4fold_index1_200.sql"
+```
+
+For example, the following retrieves all recorded nonquasismooth families of equation degree $200$:
+
+```sql
+SELECT *
+FROM terminal_fano_4fold_index1_200
+WHERE Equation_degree = 200 AND IsQsmooth = 0;
+```
 
 ### Quasismooth reference classification
 
-[`data/quasismooth/quasismooth_terminal.csv`](data/quasismooth/quasismooth_terminal.csv) contains the quasismooth terminal Fano fourfold reference data of index one. The source is the [Graded Ring Database (GRDB)](https://www.grdb.co.uk/forms/fano4ci1) and the classification by Gavin Brown and Alexander M. Kasprzyk:
+[`data/quasismooth/quasismooth_terminal.csv`](data/quasismooth/quasismooth_terminal.csv) contains the quasismooth terminal Fano fourfold reference data of index one. Its sources are the [Graded Ring Database (GRDB)](https://www.grdb.co.uk/) and the classification by Gavin Brown and Alexander M. Kasprzyk:
 
 > G. Brown and A. M. Kasprzyk, [*Four-dimensional projective orbifold hypersurfaces*](https://doi.org/10.1080/10586458.2015.1054054), *Experimental Mathematics* **25** (2016), no. 2, 176–193.
 
@@ -79,20 +94,26 @@ git clone https://github.com/marctruter/fano_hypersurface_exhaustive.git
 cd fano_hypersurface_exhaustive
 ```
 
-Use a Python environment with the dependencies imported by the relevant scripts and notebooks in [`code/`](code/). The scripts use relative paths, so check their expected working directory and data locations before execution. The classification archive on Zenodo will provide the tabulated results without requiring a repeat of the computational search.
+Use a Python environment with the dependencies imported by the relevant scripts and notebooks in [`code/`](code/). The scripts use relative paths, so check their expected working directory and data locations before execution. The [Zenodo classification archive](https://doi.org/10.5281/zenodo.23836799) provides the tabulated results without requiring a repeat of the computational search.
 
 ## Related work
 
-Our companion repository, [*Deep Reinforcement Learning for Fano Hypersurfaces*](https://github.com/marctruter/fano_hypersurface_deep), uses heuristic searches to discover additional terminal Fano fourfold hypersurfaces, including examples with $d>200$. That project is documented separately in [arXiv:2603.15437](https://arxiv.org/abs/2603.15437).
+The companion repository, [*Terminal Fano 4-fold Hypersurfaces via Deep Reinforcement Learning*](https://github.com/marctruter/fano_hypersurface_deep), uses heuristic searches to discover additional terminal Fano fourfold hypersurfaces, including examples with $d>200$. The associated paper is available as [arXiv:2603.15437](https://arxiv.org/abs/2603.15437), and the [sporadic classification dataset](https://doi.org/10.5281/zenodo.23837634) is archived separately on Zenodo.
 
 ## Citation
 
-If you use the exhaustive-search code or classification data, please cite the associated paper and, when available, the Zenodo dataset:
+If you use the exhaustive-search code or classification data, please cite the associated mathematical work and the Zenodo dataset:
 
 - **Marc Truter**, *Terminal Fano 4-fold Hypersurfaces*, in preparation.
-- **Zenodo classification dataset:** *DOI to be added.*
+- **Marc Truter**, [*Classification of Terminal Fano 4-Fold Hypersurfaces in Weighted Projective Space of Index 1 up to Degree 200*](https://doi.org/10.5281/zenodo.23836799), Zenodo (2026). DOI: `10.5281/zenodo.23836799`.
 
-If you use the reference quasismooth classification, please also cite the [GRDB](https://www.grdb.co.uk/forms/fano4ci1) and [Brown–Kasprzyk (2016)](https://doi.org/10.1080/10586458.2015.1054054).
+The methods for certifying terminality are also developed in Marc Truter's PhD thesis, *Terminal Hypersurfaces in Weighted Projective Spaces*, University of Warwick.
+
+If you use the reference quasismooth classification, please also cite the [GRDB](https://www.grdb.co.uk/) and [Brown–Kasprzyk (2016)](https://doi.org/10.1080/10586458.2015.1054054).
+
+## Acknowledgements
+
+This work was supported by the UK Engineering and Physical Sciences Research Council (EPSRC) under grant number EP/W523793/1.
 
 ## Licence
 
