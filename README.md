@@ -25,13 +25,13 @@ code/                               Exhaustive-search and analysis scripts/noteb
 
 data/
   quasismooth/
-    quasismooth_terminal.csv         Reference quasismooth classification
+    quasismooth_terminal.csv        Reference quasismooth classification
   certification/
-    certification_short.csv          Six weights per row (no header)
-    certification_short.pkl          Degree and weight records
-    certification_medium.pkl         Condensed singularity records
-    certification_long.pkl           Detailed certification records
-    certification_raw.pkl            Raw records and certification outcomes
+    certification_short.csv         Six weights per row (no header)
+    certification_short.pkl         Degree and weight records
+    certification_medium.pkl        Condensed singularity records
+    certification_long.pkl          Detailed certification records
+    certification_raw.pkl           Raw records and certification outcomes
 
 figures/                            Figures associated with the analysis
 LICENSE                             MIT licence
@@ -101,16 +101,19 @@ Please cite these original sources when using the quasismooth data.
 
 ## Reproducing the computations
 
-Clone the repository:
+1. Clone the repository:
 
-```bash
-git clone https://github.com/marctruter/fano_hypersurface_exhaustive.git
-cd fano_hypersurface_exhaustive
-```
+   ```bash
+   git clone https://github.com/marctruter/fano_hypersurface_exhaustive.git
+   cd fano_hypersurface_exhaustive
+   ```
 
-Use a Python environment with the dependencies imported by the relevant scripts and notebooks in [`code/`](code/). The scripts use relative paths, so check their expected working directory and data locations before execution. The [Zenodo classification archive](https://doi.org/10.5281/zenodo.23836799) provides the tabulated results without requiring a repeat of the computational search.
+2. Set up a Python environment with the packages imported by the relevant scripts and notebooks in [`code/`](code/).
+3. Run the relevant scripts or notebooks, checking their expected working directory and relative data paths before execution.
 
-## Related work
+The [Zenodo classification archive](https://doi.org/10.5281/zenodo.23836799) provides the tabulated results without requiring a repeat of the computational search.
+
+## Companion repository
 
 The companion repository, [*Terminal Fano 4-fold Hypersurfaces via Deep Reinforcement Learning*](https://github.com/marctruter/fano_hypersurface_deep), uses heuristic searches to discover additional terminal Fano fourfold hypersurfaces, including examples with $d>200$. The associated paper is available as [arXiv:2603.15437](https://arxiv.org/abs/2603.15437), and the [sporadic classification dataset](https://doi.org/10.5281/zenodo.23837634) is archived separately on Zenodo.
 
@@ -119,9 +122,13 @@ The companion repository, [*Terminal Fano 4-fold Hypersurfaces via Deep Reinforc
 If you use the exhaustive-search code or classification data, please cite the associated mathematical work and the Zenodo dataset:
 
 - **Marc Truter**, *Terminal Fano 4-fold Hypersurfaces*, in preparation.
-- **Marc Truter**, [*Classification of Terminal Fano 4-Fold Hypersurfaces in Weighted Projective Space of Index 1 up to Degree 200*](https://doi.org/10.5281/zenodo.23836799), Zenodo (2026). DOI: `10.5281/zenodo.23836799`.
+- **Truter, M. (2026).** *Classification of Terminal Fano 4-Fold Hypersurfaces in Weighted Projective Space of Index 1 up to Degree 200* (Version 1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23836799
 
 The methods for certifying terminality are also developed in Marc Truter's PhD thesis, *Terminal Hypersurfaces in Weighted Projective Spaces*, University of Warwick.
+
+If you use results from the companion heuristic-search project, please also cite its [paper](https://arxiv.org/abs/2603.15437) and the following dataset:
+
+- **Truter, M. (2026).** *Sporadic List of Terminal Fano 4-Fold Hypersurfaces in Weighted Projective Space of Index 1* (Version 1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23837634
 
 If you use the reference quasismooth classification, please also cite the [GRDB](https://www.grdb.co.uk/) and [Brown–Kasprzyk (2016)](https://doi.org/10.1080/10586458.2015.1054054).
 
