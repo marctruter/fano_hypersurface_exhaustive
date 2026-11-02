@@ -13,7 +13,7 @@ We perform an **exhaustive computational search up to equation degree $d\leq200$
 ## Main results
 
 - An exhaustive search in the degree range **$d\leq200$**.
-- **77,387 nonquasismooth terminal families** identified in this range.
+- **77,353 nonquasismooth terminal families** identified in this range.
 - Recorded weight vectors and computational information about singularities and terminality. The complete tabulated classification is [archived on Zenodo](https://doi.org/10.5281/zenodo.23836799) [3].
 
 The terminality criteria and methods for analysing hyperquotient singularities are developed in the author's doctoral thesis [7] and will also be presented, together with the exhaustive search procedure and classification results, in *Terminal Fano 4-fold Hypersurfaces* [5].
