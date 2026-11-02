@@ -117,7 +117,7 @@ If you use results from the companion heuristic-search project, please cite its 
 
 ## References
 
-[1] Gavin Brown and Alexander M. Kasprzyk, *Four-dimensional projective orbifold hypersurfaces*, *Experimental Mathematics* **25** (2016), no. 2, 176–193. https://doi.org/10.1080/10586458.2015.1054054.
+[1] Gavin Brown and Alexander Kasprzyk, *Four-dimensional projective orbifold hypersurfaces*, *Experimental Mathematics* **25** (2016), no. 2, 176–193. https://doi.org/10.1080/10586458.2015.1054054.
 
 [2] Gavin Brown and Alexander Kasprzyk, [Graded Ring Database](https://www.grdb.co.uk/).
 
